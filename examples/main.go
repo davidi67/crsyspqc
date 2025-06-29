@@ -1,4 +1,4 @@
-// Examples using crsyspqc
+// Examples calling crsyspqc methods
 package main
 
 import (
