@@ -1,3 +1,4 @@
+// Tests for crsyspqc
 package crsyspqc_test
 
 import (

@@ -1,3 +1,4 @@
+// Examples using crsyspqc
 package main
 
 import (
@@ -23,6 +24,11 @@ func main() {
 	ver := general.Version()
 	fmt.Println("General.Version:", ver)
 	fmt.Printf("General.DllInfo: \"%s\"\n", general.DllInfo())
+
+	///////////
+	// DSA
+	///////////
+	fmt.Println("\nTesting DSA...")
 	var dsa crsyspqc.Dsa
 	var alg = crsyspqc.ML_DSA_65
 	fmt.Println("Alg:", dsa.AlgName(alg))

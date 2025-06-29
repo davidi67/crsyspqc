@@ -1,3 +1,4 @@
+// Test vectors for crsyspqc examples in main.go
 package main
 
 // We store the long test vector strings here so as not to obscure the main code

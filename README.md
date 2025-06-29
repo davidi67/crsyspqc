@@ -1,9 +1,9 @@
-# crsyspqc-main
+# crsyspqc
 
-Package crsyspqc provides an interface to CryptoSys PQC for go programmers.
+Package `crsyspqc` provides an interface to CryptoSys PQC for go programmers.
 
 CryptoSys PQC provides Post-Quantum Cryptography algorithms as specified by NIST.
-Requires CryptoSys PQC to be installed on your computer, available for free at
+It requires CryptoSys PQC to be installed on your computer, available for free at
 <https://www.cryptosys.net/pqc/>
 
 References:
