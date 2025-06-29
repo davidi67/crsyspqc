@@ -1,3 +1,6 @@
+// Copyright (C) 2025 David Ireland, DI Management Services Pty Limited
+// t/a CryptoSys <www.cryptosys.net>. All rights reserved. 
+
 // Package crsyspqc provides an interface to CryptoSys PQC for go programmers.
 //
 // CryptoSys PQC provides Post-Quantum Cryptography algorithms as specified by NIST.
