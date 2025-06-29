@@ -1,5 +1,7 @@
 // Copyright (C) 2025 David Ireland, DI Management Services Pty Limited
 // t/a CryptoSys <www.cryptosys.net>. All rights reserved. 
+// Use of this source code is governed by an Apache-2.0
+// license that can be found in the LICENSE file.
 
 // Package crsyspqc provides an interface to CryptoSys PQC for go programmers.
 //
@@ -16,7 +18,6 @@
 // [FIPS204]: https://doi.org/10.6028/NIST.FIPS.204
 // [FIPS205]: https://doi.org/10.6028/NIST.FIPS.205
 //
-// @license Apache-2.0 http://www.apache.org/licenses/
 package crsyspqc
 
 import (
