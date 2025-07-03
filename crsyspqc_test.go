@@ -80,6 +80,31 @@ func TestMLDSAKeyGenSignVerify(t *testing.T) {
 	// Now verify the signature
 	ok, err := dsa.Verify(alg, sig, msg, pk)
 	if !ok || err != nil {
+		t.Error("Signature did not verify:", err)
+	}
+}
+
+func TestMLDSAPreHash(t *testing.T) {
+	// 1. Generate an ML-DSA key pair from a known seed
+	// 2. Use to sign the string "abc" using the pre-hash variant in deterministic manner
+	// 3. Verify the signature using the generated public key
+	var dsa crsyspqc.Dsa
+	alg := crsyspqc.ML_DSA_44
+	var seed = "079EAB79AB14747CA01582B59F2624191B0C59FA219CDEB79F66669DAF0E695E"
+	pk, sk, err := dsa.KeyGenWithParams(alg, seed)
+	if err != nil {
+		t.Error("Dsa.KeyGen returns error", err)
+	}
+	// msg is "abc"
+	// ph = SHA-256("abc")
+	ph, _ := hex.DecodeString("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
+	hashAlg := crsyspqc.SHA256
+	// Sign using pre-hash variant in hedged mode
+	sig, _ := dsa.SignPreHash(alg, ph, hashAlg, sk, crsyspqc.SIGOPTS_DEFAULT, nil, "")
+
+	// Now verify the signature sing pre-hash variant
+	ok, err := dsa.VerifyPreHash(alg, sig, ph, hashAlg, pk, 0, nil)
+	if !ok || err != nil {
 		t.Error("Signature did not verify")
 	}
 }
@@ -95,7 +120,7 @@ func TestMLKEMKeyGenEncapsDecaps(t *testing.T) {
 	}
 	// Use Kem.Encaps with known random value "m" to generate (ct,ss)
 	m := "8FA6B817B59059DED3AA03A34120C35D0976A61AE9AAB8FB4C8F2EA7ECF9BFD4"
-	ct, ss, _ := kem.EncapsWithParams(algk, ek, m)
+	ss, ct, _ := kem.EncapsWithParams(algk, ek, m)
 
 	// Check we get same ss with Decaps
 	ss1, _ := kem.Decaps(algk, ct, dk)

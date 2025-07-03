@@ -1,0 +1,1017 @@
+{
+    "vsId": 53,
+    "version": "v1.1.0.38",
+    "author": "David Ireland https://cryptosys.net/",
+    "algorithm": "SLH-DSA",
+    "mode": "sigGen",
+    "preHashes": {
+        "15": {
+            "tcId": 15,
+            "messagelength": 1,
+            "hashAlg": "SHA2-224",
+            "ph": "dfd5f9139a820075df69d7895015360b76d0360f3d4b77a845689614"
+        },
+        "16": {
+            "tcId": 16,
+            "messagelength": 6411,
+            "hashAlg": "SHAKE-128",
+            "ph": "b5b7eb6f6070204598dbebeba0a444225b49941ee5ab87e3bca9fd555ddd823c"
+        },
+        "17": {
+            "tcId": 17,
+            "messagelength": 4579,
+            "hashAlg": "SHA2-256",
+            "ph": "1a74e1f60629bd160d3a85d1adf6d7378d40a29055bf574501e5b1a0a20bb186"
+        },
+        "18": {
+            "tcId": 18,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-512/256",
+            "ph": "9a050474edfae54ccbcd80b867bd060cd81ea76fec99e529ca458f7ddb87cc2d"
+        },
+        "19": {
+            "tcId": 19,
+            "messagelength": 5288,
+            "hashAlg": "SHA2-256",
+            "ph": "1fe9c6cff7116bc399c2a9bca9f5071cc06fe7b903574000ee1156959eb5852b"
+        },
+        "20": {
+            "tcId": 20,
+            "messagelength": 5126,
+            "hashAlg": "SHAKE-256",
+            "ph": "15a361b06b94014d0e45d35bc676c1370a636ee19f2fbdeabf31caadc31c7220123a8d899d39ae108fb5ea0ef297dcf9449e098394145f37c0a150ff4dff06df"
+        },
+        "21": {
+            "tcId": 21,
+            "messagelength": 958,
+            "hashAlg": "SHA2-512/224",
+            "ph": "0e3337466900bd61ae6d95aee786788c384ff877fb9fe2889671425d"
+        },
+        "22": {
+            "tcId": 22,
+            "messagelength": 4186,
+            "hashAlg": "SHA3-384",
+            "ph": "bcb2abe869bc2323771a25e6a8ba87d2cef2e32f443b6ec92812edc0a0a5757462aef20729dcc67cc3c262ded9efcb2f"
+        },
+        "23": {
+            "tcId": 23,
+            "messagelength": 5347,
+            "hashAlg": "SHA3-512",
+            "ph": "0eec8e1f96f2ce0547ac3c80d9b9b2c2ed8092ae252dffecf0a56a4003cf59d011d99e375903852727907f7c7c7ea1ba28a2b2d9c6b1166a1736affda353c6f7"
+        },
+        "24": {
+            "tcId": 24,
+            "messagelength": 4522,
+            "hashAlg": "SHA2-512",
+            "ph": "e9890f1c11dd3e5b6b632b560f5adb8a449920743ec9ec2db532d128c87094a6a9fb76f291228f3051e47a36f3c37927e7a53b60c696d10ad9f2e5c75ef47e6f"
+        },
+        "25": {
+            "tcId": 25,
+            "messagelength": 5425,
+            "hashAlg": "SHA2-384",
+            "ph": "2f9b123ff25167df2c3308325f2270fab93b12dc1da733b4219fff5384280becc6db18c8f31372dc0379f34b86a1905e"
+        },
+        "26": {
+            "tcId": 26,
+            "messagelength": 2238,
+            "hashAlg": "SHA3-224",
+            "ph": "a7d0d2b6776599ab84eff3b1e2e8b5e1fe845744a380bf5b75564a52"
+        },
+        "27": {
+            "tcId": 27,
+            "messagelength": 4803,
+            "hashAlg": "SHAKE-256",
+            "ph": "c7d5debefe8ad9f2d655baf81b5ad138be8c528b1c61bc6ec14b664a56b5ae8bcc4862e2dd9bb297129b05fac1ca6d3d63dcd6744501c3935be434ce2f8cdaf3"
+        },
+        "28": {
+            "tcId": 28,
+            "messagelength": 3027,
+            "hashAlg": "SHA3-256",
+            "ph": "71d6d0ab13215b67fa3d1ffd183013ee174a3ed2164d6d91e128974cb0696be9"
+        },
+        "43": {
+            "tcId": 43,
+            "messagelength": 1,
+            "hashAlg": "SHAKE-256",
+            "ph": "71e9ad6ffc46e6b725d459c067d768fd9aa9eb52da0d756b810a65d12065a73dc01ebeebf90a2789d5163a481ad9ae395e36e5af29c4946c62e7f7c423dce6e4"
+        },
+        "44": {
+            "tcId": 44,
+            "messagelength": 6237,
+            "hashAlg": "SHA2-512/256",
+            "ph": "a4d668cc5088a685fddb3428043724f00ddbc9adbecbfe010a0aed00e729be53"
+        },
+        "45": {
+            "tcId": 45,
+            "messagelength": 6658,
+            "hashAlg": "SHA2-384",
+            "ph": "cb7ca032b6f7ea2e540265e51d7e6664496b777a97a8edd023b453a6024f56e4aba0200ebbc823e33b45668e9fa7231d"
+        },
+        "46": {
+            "tcId": 46,
+            "messagelength": 5950,
+            "hashAlg": "SHA3-512",
+            "ph": "f796d98f545ef99ed875c56a2440b57922652b6c586501988140f146cfe3a477c6e5683fc0526421a198502ec4609546e2997f44ca760c15ae6abd2df5d7bd18"
+        },
+        "47": {
+            "tcId": 47,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-224",
+            "ph": "cfb4a871c8a256d866aae1462fcf0ebca5358cf5dfcbf774c0ae3943"
+        },
+        "48": {
+            "tcId": 48,
+            "messagelength": 1458,
+            "hashAlg": "SHA3-384",
+            "ph": "2eb651fb0c553d1d50e113c7a3438192f06593bec0f6c8c72776b36e62455835e9d1db5a8374daecc3df9c62310ce003"
+        },
+        "49": {
+            "tcId": 49,
+            "messagelength": 7550,
+            "hashAlg": "SHA2-256",
+            "ph": "b76487ca4c1e5a4d6ffed7a00c1d050a699f17425de2a454842ecdfe00a11e49"
+        },
+        "50": {
+            "tcId": 50,
+            "messagelength": 751,
+            "hashAlg": "SHA2-384",
+            "ph": "45174d77b4e2e3c07b2f65f4da8a5c664ade76efffe7a2d30fc26b07829d59003592a4aa509252ca0c4a456fe0584f60"
+        },
+        "51": {
+            "tcId": 51,
+            "messagelength": 6087,
+            "hashAlg": "SHA2-512/256",
+            "ph": "4392c883776131aab81efeca99663a69485b830f12f7991fdb5a22fb3a3b0ab1"
+        },
+        "52": {
+            "tcId": 52,
+            "messagelength": 3135,
+            "hashAlg": "SHA3-224",
+            "ph": "5eb48ef71017f90a539312926462daa556ca72e466973f2c6a566eb6"
+        },
+        "53": {
+            "tcId": 53,
+            "messagelength": 3842,
+            "hashAlg": "SHA3-256",
+            "ph": "494e302f4dbccb0c1f133c9b1a9f7a332df06ab4990fd6fe36c0805b849966eb"
+        },
+        "54": {
+            "tcId": 54,
+            "messagelength": 930,
+            "hashAlg": "SHAKE-128",
+            "ph": "ba1226b5c03f64ce358e77fc82fd04ee7513d8c76f1dd55fd1195111cc6d4a5c"
+        },
+        "55": {
+            "tcId": 55,
+            "messagelength": 4670,
+            "hashAlg": "SHA2-512",
+            "ph": "b5ea335fb67320903ce662a62949df9006e5972264db0b136b06bba00fd531c38934ea4dbfc8771da0966f85030eddc5cf25ed24a3739a62958d0d59192a6e74"
+        },
+        "56": {
+            "tcId": 56,
+            "messagelength": 4682,
+            "hashAlg": "SHA2-512/224",
+            "ph": "9ae5bd930532ff2e776cbca570f6a0897836aa316fb210d130a87279"
+        },
+        "71": {
+            "tcId": 71,
+            "messagelength": 1873,
+            "hashAlg": "SHA3-224",
+            "ph": "f88eb72a113e00cdff2723654379b3bc2fc9e6434055c55f8eb77929"
+        },
+        "72": {
+            "tcId": 72,
+            "messagelength": 370,
+            "hashAlg": "SHAKE-256",
+            "ph": "9158c08f9c1801cc7c6a647c6c3f96c3d95953578953740d533372f7aa795ddd560477a502f85019a435af1e0021065e023a6a7a2974b4f704c89dc3dbca7d97"
+        },
+        "73": {
+            "tcId": 73,
+            "messagelength": 2771,
+            "hashAlg": "SHA2-512/224",
+            "ph": "ed170e88541fbc6f8274bafc5df4ceacc636adc10b6bfee6007b8ed0"
+        },
+        "74": {
+            "tcId": 74,
+            "messagelength": 7391,
+            "hashAlg": "SHA2-256",
+            "ph": "b1727f51029910ed55da934e35514a272ca784c4c29038a3c249fd31c8dcf527"
+        },
+        "75": {
+            "tcId": 75,
+            "messagelength": 6344,
+            "hashAlg": "SHA3-512",
+            "ph": "46f2e11b9c340d3165e6c8ad1ce1db5abd5599d1cfe27b2d45ee2970b3c3a50599fb50e45d6cba54eddc18a25f6e6c913eaab511916b695164be8275dcf31f0a"
+        },
+        "76": {
+            "tcId": 76,
+            "messagelength": 7739,
+            "hashAlg": "SHA3-256",
+            "ph": "20fd004761760047c71a732c5214d85e410bd4e9c4ea2498da2c1929c9a287d2"
+        },
+        "77": {
+            "tcId": 77,
+            "messagelength": 2423,
+            "hashAlg": "SHA2-384",
+            "ph": "4463b4082cd048a73873462aeb75a353633f546e53d8bc850668be4d3cb101407273ee71445d03c68f99f11b14349355"
+        },
+        "78": {
+            "tcId": 78,
+            "messagelength": 5116,
+            "hashAlg": "SHA2-384",
+            "ph": "266466736a043db419d3bdcefdfcae804c710eaa2e6842e08fffd7901f3d2e7d175b1976effa90738d95c597b48f6fda"
+        },
+        "79": {
+            "tcId": 79,
+            "messagelength": 5598,
+            "hashAlg": "SHA3-384",
+            "ph": "77639c6475d91cf3c2ca6c140236ebcad22d424c8ad0b7eed6e2eb0521cad895513ea9d38b331a69f7619446e7d4b3b1"
+        },
+        "80": {
+            "tcId": 80,
+            "messagelength": 72,
+            "hashAlg": "SHA2-512",
+            "ph": "e4e659688c43003e8dd09ed75e4e1ce600fbfd3ff7d45490da24d129b8a8abb695221659dd6389792dc2ad9694d39b9a48ddf930b7f1ed67f1b2c938608b308e"
+        },
+        "81": {
+            "tcId": 81,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-512/256",
+            "ph": "bec5a0c26d815ad95509146dd31379a089925fb203c28f0299c2d4c70e33ac3d"
+        },
+        "82": {
+            "tcId": 82,
+            "messagelength": 5638,
+            "hashAlg": "SHAKE-128",
+            "ph": "d9861a6259218dcb83492e4286618e71d5f6b8546fd31fbf230d06c4a29b1415"
+        },
+        "83": {
+            "tcId": 83,
+            "messagelength": 3270,
+            "hashAlg": "SHA2-224",
+            "ph": "4e34659ac6820435aa74df44c5ee790cc36670cbbebf2a6b504e8b90"
+        },
+        "84": {
+            "tcId": 84,
+            "messagelength": 1,
+            "hashAlg": "SHAKE-256",
+            "ph": "5c55a83fe6fd93e6383dc91d755ad3210eb4bb72a0e2c7e9e4ebe78d2b00351b466cb0accc55b7e8454ec563e35f1bae809292eb78e535a7c5b05e0e7ec92c75"
+        },
+        "99": {
+            "tcId": 99,
+            "messagelength": 3474,
+            "hashAlg": "SHA2-512/256",
+            "ph": "99ca361d97536528b667f1277bc438b2bc62d8784f2adcbceb316a19c644b7ff"
+        },
+        "100": {
+            "tcId": 100,
+            "messagelength": 6530,
+            "hashAlg": "SHA3-224",
+            "ph": "942a82b8a72256fa2e9e756addaff4921177c185ae63697728b2fbdc"
+        },
+        "101": {
+            "tcId": 101,
+            "messagelength": 4729,
+            "hashAlg": "SHA2-256",
+            "ph": "f5b313ce5f5d61ef7286e6392640b339e7903b9fb375a7e8555986f4a8d69abb"
+        },
+        "102": {
+            "tcId": 102,
+            "messagelength": 713,
+            "hashAlg": "SHAKE-128",
+            "ph": "af295d005cb5a8ab4a8cf02ce38ef3c9f148f7044947fb584988d697b0dc5418"
+        },
+        "103": {
+            "tcId": 103,
+            "messagelength": 2466,
+            "hashAlg": "SHAKE-256",
+            "ph": "74251c1ca02babbfd71718f03f5de1a4e88a3ace459fb64027579266f467f1776d3df1d4878717ac69afab53a651e38b4102c060ed83569077fe896714705374"
+        },
+        "104": {
+            "tcId": 104,
+            "messagelength": 3342,
+            "hashAlg": "SHA2-384",
+            "ph": "000f9e5a2120353eb9f03ea2dd5ce672fcaa85e17a2fe24efc6c52206e852b9efd4e379958bbc0dc517c93311922bd0b"
+        },
+        "105": {
+            "tcId": 105,
+            "messagelength": 5421,
+            "hashAlg": "SHA2-224",
+            "ph": "ac8d72d01b0b460263eff0f11947269f637789144e4ae582e9f82cee"
+        },
+        "106": {
+            "tcId": 106,
+            "messagelength": 5722,
+            "hashAlg": "SHA3-256",
+            "ph": "7a640d157233fac01d6f46f0671f012f76733a1066c460ec05b0b45b02be6c10"
+        },
+        "107": {
+            "tcId": 107,
+            "messagelength": 7182,
+            "hashAlg": "SHAKE-256",
+            "ph": "c467628877a272f85a5cc6f26287f311333ce73cfc8ec7f0e22d4654e1dc58361ae0e674a64899ef64dd40aa7e06840ee3d03b1513560b978d66176b5bafbc57"
+        },
+        "108": {
+            "tcId": 108,
+            "messagelength": 1,
+            "hashAlg": "SHA2-512",
+            "ph": "7b0776dbac74a9abb8a0d0119c73ae82efbb1b95af009f0669e2b52c9664f7fbb458ddf3abd7ccf0617ab69362a13ade046c4f19490710e5d8937ba72efa90aa"
+        },
+        "109": {
+            "tcId": 109,
+            "messagelength": 8192,
+            "hashAlg": "SHAKE-128",
+            "ph": "87db2ba0bd214994b7b81a452cb11f9af9a1e745debc54297210150402ffb466"
+        },
+        "110": {
+            "tcId": 110,
+            "messagelength": 2751,
+            "hashAlg": "SHA3-384",
+            "ph": "f9ba66700161f33c1fedb6bb5370255202ee8c7ccba21504e004cbfd4c2b96f6f3fc0dcf154f94b73d2e8664455d75f4"
+        },
+        "111": {
+            "tcId": 111,
+            "messagelength": 3427,
+            "hashAlg": "SHA2-512/224",
+            "ph": "923d16269b593ef1b7a3eebcb584e806d7a2fcf20524de1413db2a41"
+        },
+        "112": {
+            "tcId": 112,
+            "messagelength": 6037,
+            "hashAlg": "SHA3-512",
+            "ph": "97168a42e0578f762d1c41b680ad55819762d4290c4ac95c451dfd3c129f3f46fe9b8f7550d723453e3b2bfb443d9d83f5a8d14a7ad92daeea977cc83253ff05"
+        },
+        "127": {
+            "tcId": 127,
+            "messagelength": 3530,
+            "hashAlg": "SHA3-224",
+            "ph": "390ba5e7a9e12c1a997e77b0254b3fc17b197c28dd3d9f8ec4edcb4f"
+        },
+        "128": {
+            "tcId": 128,
+            "messagelength": 2301,
+            "hashAlg": "SHA2-512",
+            "ph": "fabee67c3f2128fb67ce6ebfc6869883e12b1099d4bc7b807281d0f54bf3f78cdadda4177308b6eaf98f25578ce13aa8402eb2298d999b1e42f541d7e00adc4d"
+        },
+        "129": {
+            "tcId": 129,
+            "messagelength": 1,
+            "hashAlg": "SHA2-512/256",
+            "ph": "347cddf497799a5e15394c5b2a4196d828d6094933a76ec38be453c8956b9691"
+        },
+        "130": {
+            "tcId": 130,
+            "messagelength": 52,
+            "hashAlg": "SHA2-256",
+            "ph": "1562a507c7c663325569a1ad1475f379fba4fd77c363e0069a92be7b262a5cb9"
+        },
+        "131": {
+            "tcId": 131,
+            "messagelength": 3240,
+            "hashAlg": "SHA3-256",
+            "ph": "83d3b909827cc8253b4060d839a683bfaac557b65e0c2ea0c97e85b1e5a19d93"
+        },
+        "132": {
+            "tcId": 132,
+            "messagelength": 224,
+            "hashAlg": "SHAKE-256",
+            "ph": "7e9f6aa66f2778ce7bd94940beea7408a53d97dc09fe9678106a9ba9778546f45c60fc9118656af4a05e4417d97b8332d1b27c7f626063e8e5ff014f9c42c024"
+        },
+        "133": {
+            "tcId": 133,
+            "messagelength": 6294,
+            "hashAlg": "SHAKE-128",
+            "ph": "666cdd01aa5eba38643e0e39ca9c06caf67f2cd70d1358c2fa0aa3ca7d3c8a3c"
+        },
+        "134": {
+            "tcId": 134,
+            "messagelength": 585,
+            "hashAlg": "SHA3-512",
+            "ph": "57348f5b439863d53c397a04c469388fd4beaed3a3b79be54881dc56dc5617f570141650144048ea395081fba2c3c7c7b824d417f8cd39f36604b0f95ee6b281"
+        },
+        "135": {
+            "tcId": 135,
+            "messagelength": 6336,
+            "hashAlg": "SHA2-224",
+            "ph": "2227a52aa9a78fda982f0d343b356e33304e9a1c9b9bb0f18c981f80"
+        },
+        "136": {
+            "tcId": 136,
+            "messagelength": 7867,
+            "hashAlg": "SHAKE-128",
+            "ph": "7da819f8f77f176c97b41c3a45620c992481f4f64f5f85686ecfbfec09690a58"
+        },
+        "137": {
+            "tcId": 137,
+            "messagelength": 836,
+            "hashAlg": "SHA2-256",
+            "ph": "45b15bc4eba7b8fcc494e557687c6930bfdf6a5152d3f0a56ff75e163c2b49f0"
+        },
+        "138": {
+            "tcId": 138,
+            "messagelength": 2490,
+            "hashAlg": "SHA3-384",
+            "ph": "654677f11e1ffc2486e72375e276b935acbd9723ffeb712dcd134f2ad65d8be30b858d355c1a407ecfbdde62da14136e"
+        },
+        "139": {
+            "tcId": 139,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-384",
+            "ph": "050efdcdaf00aa358879ba52e22dbad096b5c6bb83642722d664d9832754beed0e5f6c219bd563d08a544066d1494c93"
+        },
+        "140": {
+            "tcId": 140,
+            "messagelength": 5604,
+            "hashAlg": "SHA2-512/224",
+            "ph": "7e33af300132ef2279a8f976bdb335bee4400579bbd960faa9d8070b"
+        },
+        "155": {
+            "tcId": 155,
+            "messagelength": 4916,
+            "hashAlg": "SHA2-384",
+            "ph": "1fe11f8889d6b9ee03ef137ffd44bd4ba40ff13e16a50fe59a943d3dafb66a359ae33ceb829b2a70e422102d4d72377c"
+        },
+        "156": {
+            "tcId": 156,
+            "messagelength": 6138,
+            "hashAlg": "SHA2-224",
+            "ph": "1b4fc3fc86d33ad9730c1e6920805aa8d9df6b5e291ac127d21eb2d1"
+        },
+        "157": {
+            "tcId": 157,
+            "messagelength": 8080,
+            "hashAlg": "SHA3-256",
+            "ph": "6f1315d5046b8d910e3bf988be8c85140fb25599a6d968a8624af2ea366553b7"
+        },
+        "158": {
+            "tcId": 158,
+            "messagelength": 8192,
+            "hashAlg": "SHAKE-256",
+            "ph": "a8e75c221e215666b44ec7118c9c93c8dfa7430d967da7d7e30bd32a30ad049b15cb13c38d3e3f275814e966789318313fd7fbbd5e2858f1e9dd3d6e4e8ee4b3"
+        },
+        "159": {
+            "tcId": 159,
+            "messagelength": 1395,
+            "hashAlg": "SHAKE-128",
+            "ph": "a098b0a257cf4fd5d4e4d5d0a1cbc91349aacbac5ddd20e14e8a835a07350409"
+        },
+        "160": {
+            "tcId": 160,
+            "messagelength": 5873,
+            "hashAlg": "SHA2-512",
+            "ph": "e3718000797a7eaf7d6c986a835956a5c6cefa43c2b4c9732b14d7869c32b1eb867d768768a376794c4076f3a27d475356ec057b5f464952ca7cefa532d90d60"
+        },
+        "161": {
+            "tcId": 161,
+            "messagelength": 3945,
+            "hashAlg": "SHA2-512/256",
+            "ph": "81ce77c5d862c16700756277915ed4802812a421b5cefd18e91011b8ad7b596b"
+        },
+        "162": {
+            "tcId": 162,
+            "messagelength": 7530,
+            "hashAlg": "SHA2-512/224",
+            "ph": "6023a18717e32436633653f4693988450e19e6a525c629ad8c78907d"
+        },
+        "163": {
+            "tcId": 163,
+            "messagelength": 1123,
+            "hashAlg": "SHA3-512",
+            "ph": "cfe6824c9c802fc8ac07b87f889ca15bead009de7f7d0c6c5481b483543e1918e36145e9fe4ec51b3298792fbd8aeefbb79f52be6545be060117ed0668193265"
+        },
+        "164": {
+            "tcId": 164,
+            "messagelength": 1207,
+            "hashAlg": "SHA3-224",
+            "ph": "8d7ca847cd54e224b066908fd8ed2c463151b56d4efbfd724bff1d3b"
+        },
+        "165": {
+            "tcId": 165,
+            "messagelength": 1,
+            "hashAlg": "SHA3-256",
+            "ph": "1bbebcf85c065dabe7c4f2ade2a86dfef2998e05662928c3f0cdb1168c607a6e"
+        },
+        "166": {
+            "tcId": 166,
+            "messagelength": 4265,
+            "hashAlg": "SHA2-512/224",
+            "ph": "ac8c6aeb642c1d382f371b1db5c69ccdc8be2bc16f5a7c778ac2be78"
+        },
+        "167": {
+            "tcId": 167,
+            "messagelength": 4333,
+            "hashAlg": "SHA3-384",
+            "ph": "5e0ee851ed71212cdddbdc18d851f0b6ef92905ed4d4b909b02f0f4cf4104be8870923fda65e95d3fc355c4ac078e8ff"
+        },
+        "168": {
+            "tcId": 168,
+            "messagelength": 5978,
+            "hashAlg": "SHA2-256",
+            "ph": "ca5218c1c5dfb9ec22e452948a7741ebe76f5dc6333397aac450ee9766c404e1"
+        },
+        "267": {
+            "tcId": 267,
+            "messagelength": 5878,
+            "hashAlg": "SHAKE-128",
+            "ph": "b09b95157c1bd11256a70d1c1d2dc66062c12331161849c341d3fa0a1e94cca7"
+        },
+        "268": {
+            "tcId": 268,
+            "messagelength": 7218,
+            "hashAlg": "SHA2-224",
+            "ph": "56a93331335adf9f176ddf1ef183d1ee1745992064aecd14b4e3489e"
+        },
+        "269": {
+            "tcId": 269,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-512",
+            "ph": "dc755bdaba7aacec045a04bb648e5802d4a546c2dffca742d66c3627b191596bd3a568ab9f94e9a8f58dd37348963d30e6e83623923499354b2e3f5d43a36e22"
+        },
+        "270": {
+            "tcId": 270,
+            "messagelength": 2126,
+            "hashAlg": "SHA2-384",
+            "ph": "dcfa0b8e646ea72197525b41d8ba8ac796effe82fd2d203385ad2aecc93c258e655751e180e5d22b4d4ef8703a619f04"
+        },
+        "271": {
+            "tcId": 271,
+            "messagelength": 7868,
+            "hashAlg": "SHA3-512",
+            "ph": "058dc4b6d3ae334d82accdc06c8100f149ebe9be74baf6c4ed89e3f38437b3388fd2852907ca1c34f42282eafb32902452e632c15dca60e40c8b772346a49298"
+        },
+        "272": {
+            "tcId": 272,
+            "messagelength": 1,
+            "hashAlg": "SHA3-224",
+            "ph": "29edb14860b7ab23fc39706238f9557941d0a96efac00cf25f97fd06"
+        },
+        "273": {
+            "tcId": 273,
+            "messagelength": 3423,
+            "hashAlg": "SHA3-256",
+            "ph": "20d277b8a0dbf716ca4417f8b6d055fe913b7bac8b886e46ac852d31f00a2d4a"
+        },
+        "274": {
+            "tcId": 274,
+            "messagelength": 5936,
+            "hashAlg": "SHA3-384",
+            "ph": "96851e0b94e613403965f88aae0b9c70e37f848b744c18ef4429e0ea9f541d4533d82616baa228a956e8b2ee87625d7f"
+        },
+        "275": {
+            "tcId": 275,
+            "messagelength": 6767,
+            "hashAlg": "SHA3-256",
+            "ph": "56da519da3cff0c47bb9e0be013bc6ae04c7767173e13f0d52c4e4bbf56d5e7c"
+        },
+        "276": {
+            "tcId": 276,
+            "messagelength": 5370,
+            "hashAlg": "SHA2-512/224",
+            "ph": "ea7a9edc6f63cd0298ec59f9aac72cccba815b46db7b4857a452ee0c"
+        },
+        "277": {
+            "tcId": 277,
+            "messagelength": 2906,
+            "hashAlg": "SHA2-512/256",
+            "ph": "87b2543a159ce77bfe0b164ffc2ce2b8002fda87ca231d1a45c01dfc6ae8c81d"
+        },
+        "278": {
+            "tcId": 278,
+            "messagelength": 4092,
+            "hashAlg": "SHA2-256",
+            "ph": "2cdd2ac4c03be201c3797fd22218c805c091d4bba42783036567c7cd6cf03be7"
+        },
+        "279": {
+            "tcId": 279,
+            "messagelength": 7791,
+            "hashAlg": "SHAKE-128",
+            "ph": "1b1ca3183c951c505b29bbf16febeb70a3be473890ac41e1cc51d03833e91d96"
+        },
+        "280": {
+            "tcId": 280,
+            "messagelength": 8155,
+            "hashAlg": "SHAKE-256",
+            "ph": "825824fc9f9ccc4228128832345f53bf36a88e37d418ce76a1725b48303c94ddf2dba804af1a7d065ce9980d1364cfc106808222000d785f603977d996a9a6ba"
+        },
+        "295": {
+            "tcId": 295,
+            "messagelength": 8045,
+            "hashAlg": "SHAKE-128",
+            "ph": "a6519536656bca8ee27492cf32e401896c8f1bc525a1768f39965c5d7ce5f327"
+        },
+        "296": {
+            "tcId": 296,
+            "messagelength": 3016,
+            "hashAlg": "SHA3-224",
+            "ph": "6f2a3e458543243dd852ef6117bb320df03a7942f2af01ce16aa3036"
+        },
+        "297": {
+            "tcId": 297,
+            "messagelength": 2924,
+            "hashAlg": "SHAKE-256",
+            "ph": "fb385bfb9c3419a8a57c4baa42bc747cf4ba839102fe3cbee1d27a7834f8bf79acbd60d97250d2f86064594ad9e80e8ab90ccb07e66537f9b04d72cf3af3bae9"
+        },
+        "298": {
+            "tcId": 298,
+            "messagelength": 6453,
+            "hashAlg": "SHA3-384",
+            "ph": "d08e53d248a613bc45256b56184659bd226d63f139041944184d9b3d35dd717cd3740e9a7a88fda4549bc4dcbefa5361"
+        },
+        "299": {
+            "tcId": 299,
+            "messagelength": 4950,
+            "hashAlg": "SHA2-512/256",
+            "ph": "b15b14ed3dcf50f4e17ce73e2ef0c05c44c7a057113c21970792ab52cb9a3469"
+        },
+        "300": {
+            "tcId": 300,
+            "messagelength": 668,
+            "hashAlg": "SHA2-512",
+            "ph": "1c1ed888b2a6089b905d4e27afcb5430ddb2a4b689a6599e6ecd86e60013e36d31656792831544864f797ca8f93c488b0dc31cf1761491d3faedc484a7481f45"
+        },
+        "301": {
+            "tcId": 301,
+            "messagelength": 8019,
+            "hashAlg": "SHA3-512",
+            "ph": "6f9a1f17c87ebc42d5b97d706dd91823474f63da6731bc507726e7cfdab2ef400a7468321faf67b705ef5b4293ad6dfb7052941ffa60945a6b9cd09e49d4892a"
+        },
+        "302": {
+            "tcId": 302,
+            "messagelength": 4490,
+            "hashAlg": "SHA3-256",
+            "ph": "c7d9e981a2124320798288a72d1541b0ebfe462142fb12c63a1d1546da4e7636"
+        },
+        "303": {
+            "tcId": 303,
+            "messagelength": 7825,
+            "hashAlg": "SHA2-256",
+            "ph": "6e986b77ec568ed8fa0e6949e6d74ce1df69e4efb9d0b65490c5d920180e577e"
+        },
+        "304": {
+            "tcId": 304,
+            "messagelength": 1,
+            "hashAlg": "SHAKE-256",
+            "ph": "0d869764040d76f626be277bc31072f1e85d9376223b23584817a2ba9834304f9969b024e9fe9555b750763ab4cb920c74363182e53b2e602f78099068ae4e3b"
+        },
+        "305": {
+            "tcId": 305,
+            "messagelength": 2307,
+            "hashAlg": "SHA2-256",
+            "ph": "cb4398659ff17d01552571d5b370d7c7ae4c6fa513db45139917dc107364b252"
+        },
+        "306": {
+            "tcId": 306,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-512/224",
+            "ph": "1d785acf6b0f26558f58db8f68649b4af8db1440690e635d49fe68e6"
+        },
+        "307": {
+            "tcId": 307,
+            "messagelength": 856,
+            "hashAlg": "SHA2-224",
+            "ph": "10e1245ef9509a456804a836b35a6a81212e1324df2afc7e113a1ffb"
+        },
+        "308": {
+            "tcId": 308,
+            "messagelength": 2327,
+            "hashAlg": "SHA2-384",
+            "ph": "51c9dca433dbb41d30d27c4d893ec8d74c93fbb375f3c6c8777b7aad213618a856c0ebe27f6f77a4b46a82b33bba6082"
+        },
+        "323": {
+            "tcId": 323,
+            "messagelength": 2552,
+            "hashAlg": "SHA2-512/256",
+            "ph": "7ed648d82bfa95d5dbca6a45c6d127f0d1a5c2551c7a9600d0a44d00c9178c00"
+        },
+        "324": {
+            "tcId": 324,
+            "messagelength": 3882,
+            "hashAlg": "SHA3-256",
+            "ph": "ad937c3cc53c899a9dd01e43a4dae686f22cd10458ea7b7bd88bfe90a1a1d2e3"
+        },
+        "325": {
+            "tcId": 325,
+            "messagelength": 4917,
+            "hashAlg": "SHA2-512",
+            "ph": "b79c727a177ec94f06fc0768de9518077904754abd0a423c729dbb23cc94092942090d1e04b7cf2887da6101399f3862f423ab6020d1640fa6b33c04f8941151"
+        },
+        "326": {
+            "tcId": 326,
+            "messagelength": 7332,
+            "hashAlg": "SHAKE-256",
+            "ph": "63a04a191b6f2103eede6605dbbeeeb2f61b2022d1a483d4747bbefe01e62957961f498c8d7b6432605186369f9a09c2cec9ee7414abc27c71ac4268b8a44950"
+        },
+        "327": {
+            "tcId": 327,
+            "messagelength": 5723,
+            "hashAlg": "SHA3-224",
+            "ph": "a08f1209e3d0e71dd4ba1779284ffe9e052d19a68f7896f9037562a5"
+        },
+        "328": {
+            "tcId": 328,
+            "messagelength": 4192,
+            "hashAlg": "SHA2-224",
+            "ph": "f822e0e8101acf2d64879dafebf4f4bff056ea27779f09c6dd3d8666"
+        },
+        "329": {
+            "tcId": 329,
+            "messagelength": 7688,
+            "hashAlg": "SHA2-512/224",
+            "ph": "d8bb6f7e6a53229fe1eee3d471353aa97b069bbd5c61747bf34ff7a7"
+        },
+        "330": {
+            "tcId": 330,
+            "messagelength": 1,
+            "hashAlg": "SHA2-512/256",
+            "ph": "6edcf3ed1ef5632429a51f941d42ccfd1d3407671a2ac939eb5361a0f576ff8f"
+        },
+        "331": {
+            "tcId": 331,
+            "messagelength": 849,
+            "hashAlg": "SHA2-384",
+            "ph": "5b0d37ef64e9eec9d8834230757474bcff1e93284c28a29831471b1d50b22f961a96fc731ccc4611070c60f988058723"
+        },
+        "332": {
+            "tcId": 332,
+            "messagelength": 262,
+            "hashAlg": "SHA2-256",
+            "ph": "b2a213c18bcb63249c9770796e5e8a38583209e62a105cdd0857780ccf53b546"
+        },
+        "333": {
+            "tcId": 333,
+            "messagelength": 8192,
+            "hashAlg": "SHA3-512",
+            "ph": "b42d72217990949639b7dc317706985815599d3559de8bfa3655dd80609cc7059458f1444ba57abdcb60c2cb4856ea3c450fe948f86f150aa1de119a580834c5"
+        },
+        "334": {
+            "tcId": 334,
+            "messagelength": 754,
+            "hashAlg": "SHA2-224",
+            "ph": "4d2fd2419abefc9251b11fa7420b2f49d304e2e8f7cf1dc5270b43d4"
+        },
+        "335": {
+            "tcId": 335,
+            "messagelength": 3576,
+            "hashAlg": "SHAKE-128",
+            "ph": "2df4a176104d649a37fdd8792dff34b40c48d0d2d4bff788cc3fd916ba6801d8"
+        },
+        "336": {
+            "tcId": 336,
+            "messagelength": 7804,
+            "hashAlg": "SHA3-384",
+            "ph": "c144f8c297eddc4711f65266cf1200ae610f24329f98a320f72d8b1c2bbb516876332368f150779d2fd11b791fceb527"
+        },
+        "351": {
+            "tcId": 351,
+            "messagelength": 5741,
+            "hashAlg": "SHA2-512/224",
+            "ph": "f07e8a5376f525e9b44f39f6b88f8cfaf56268145d82d6de00759b29"
+        },
+        "352": {
+            "tcId": 352,
+            "messagelength": 5777,
+            "hashAlg": "SHA2-512/224",
+            "ph": "3dce7c9b9d61073c394c434cdcc5335f6877e7d620364fff9910b40b"
+        },
+        "353": {
+            "tcId": 353,
+            "messagelength": 1,
+            "hashAlg": "SHA2-384",
+            "ph": "249998efbe24ad1ae4b5a7c5da1bed1194f623d8c2814b5379a23d0fb3b18344043bfa5829d0c3d167068471e906acc0"
+        },
+        "354": {
+            "tcId": 354,
+            "messagelength": 3434,
+            "hashAlg": "SHA3-384",
+            "ph": "aef45bd90bf477066af62ba98e63a2c64a429739abb0eb49df53a3db95dbfb39ad21ad3ecd635c0f6d8690e21b01c3a7"
+        },
+        "355": {
+            "tcId": 355,
+            "messagelength": 2442,
+            "hashAlg": "SHA2-224",
+            "ph": "2dfce00b621f3f9aa0fbc46165f6185a54186e6dcddfce100bce276d"
+        },
+        "356": {
+            "tcId": 356,
+            "messagelength": 2982,
+            "hashAlg": "SHAKE-256",
+            "ph": "be0b955cf8c1e58ef55afbb9c06c03adf67bd71d9b9d573cd7130cef5c19f969cd41974e3a832ce1691dd2018178d424bbd4f2fe901642e5d672879f1d764c2a"
+        },
+        "357": {
+            "tcId": 357,
+            "messagelength": 1876,
+            "hashAlg": "SHA3-512",
+            "ph": "419e153ae681c041f7aa8973132aa258d36006c6069d5a450179a1df8e3ca8b2111d08c3342040c56c220d6b4a586b0fcbe49f7cd9ad05ea368ba4b590f572b6"
+        },
+        "358": {
+            "tcId": 358,
+            "messagelength": 4533,
+            "hashAlg": "SHA3-256",
+            "ph": "640cea0516f8ff0dc0102e37e8833e6d39180b381e057422f3c3631128cf2d33"
+        },
+        "359": {
+            "tcId": 359,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-256",
+            "ph": "dc2bd96dd193e61280e3a1c0ea6a81deef05882d38d9a80d77e097046d3677cb"
+        },
+        "360": {
+            "tcId": 360,
+            "messagelength": 1646,
+            "hashAlg": "SHA2-512/256",
+            "ph": "51366b379e1e63d58964f4323f4983012cb1036806d8e9b692ccd5f645a2d141"
+        },
+        "361": {
+            "tcId": 361,
+            "messagelength": 6549,
+            "hashAlg": "SHA3-224",
+            "ph": "693f0cf7adabe4cf2e8a337ce53d2167790cab73182d798ab33fcedb"
+        },
+        "362": {
+            "tcId": 362,
+            "messagelength": 5138,
+            "hashAlg": "SHAKE-128",
+            "ph": "1f31e155e92705dfd50219cb9a897552e5085eb2084d527f99be31194b186c14"
+        },
+        "363": {
+            "tcId": 363,
+            "messagelength": 6852,
+            "hashAlg": "SHA2-224",
+            "ph": "99c15fa9a77e6291ff65b28953a5f746df96f0577bacfd799b7b8422"
+        },
+        "364": {
+            "tcId": 364,
+            "messagelength": 911,
+            "hashAlg": "SHA2-512",
+            "ph": "18a664e6e68a6080f7f215311be71dd0d364346eaa65efb25c61508e1145ce956c606fd19ca74880071af5c3b159582ee4b71380b0ffe28cfbd467bef655cbcb"
+        },
+        "379": {
+            "tcId": 379,
+            "messagelength": 7545,
+            "hashAlg": "SHA2-224",
+            "ph": "bceb51a757fde1358caf51cd49da1b6bfa9036e7f06edff6c2dc03ee"
+        },
+        "380": {
+            "tcId": 380,
+            "messagelength": 1,
+            "hashAlg": "SHA2-512",
+            "ph": "b9b447ce4cdcb801c6bbf6d616487fe7fbc9425ae6ff9d8ac4ba9a44f12b2cdab9df5fef8f30cc555f31032ce0dbb0694a261b9bfdc5b950626301a64bb9b84f"
+        },
+        "381": {
+            "tcId": 381,
+            "messagelength": 1067,
+            "hashAlg": "SHA2-512",
+            "ph": "1c7a987554470064dd0105d02f9b8a8e73e972aaf9ead355e968d7e8416905e651b8254b20dde0fb87babe51af07bb289060930ef639cc2ef2f898b250c2b82d"
+        },
+        "382": {
+            "tcId": 382,
+            "messagelength": 5524,
+            "hashAlg": "SHAKE-256",
+            "ph": "cdb418d404dd036a258983778b7d72f66e05fc9fe01a748ab06565417cb9aedd9e716173cb0a55e3703b1f2ff36295f20184a3fcc63661e406c5424d23c56be4"
+        },
+        "383": {
+            "tcId": 383,
+            "messagelength": 1548,
+            "hashAlg": "SHA3-512",
+            "ph": "7d6c142585f9627178730fca79274f6e3c4698d34c02b8379ebf69df322fe40ebdda769f3e0172a271f7c98af191c355d5caee9b6f3a497105441eef766ad5b2"
+        },
+        "384": {
+            "tcId": 384,
+            "messagelength": 494,
+            "hashAlg": "SHA2-256",
+            "ph": "ebe4c4774863a7410333df046c1002f31361a78986968f86faae3b26fdf0d4dd"
+        },
+        "385": {
+            "tcId": 385,
+            "messagelength": 2046,
+            "hashAlg": "SHAKE-128",
+            "ph": "32e4e54fbeacda54cc475b767b6033ef8c4431931edc99e30af10e0d0a16a62d"
+        },
+        "386": {
+            "tcId": 386,
+            "messagelength": 4157,
+            "hashAlg": "SHA3-384",
+            "ph": "3700f4ec4554ea12f9c8513fc173fbefb8ed78064b27231bc2f0e61d7567f0dc2c3c790daa662e5334010257835a9e53"
+        },
+        "387": {
+            "tcId": 387,
+            "messagelength": 59,
+            "hashAlg": "SHA3-224",
+            "ph": "bbbc7cabf0eefd668b5b3e4a52e2edb8f7ba5e4d3499befd330c03e5"
+        },
+        "388": {
+            "tcId": 388,
+            "messagelength": 8192,
+            "hashAlg": "SHA3-384",
+            "ph": "dabe25841db4b8cfb1b03ff57e3f67f79a96a2c6bb9e37e65c75014527d19ec67ddeb46796e062e163de5ed4a3ff9181"
+        },
+        "389": {
+            "tcId": 389,
+            "messagelength": 4638,
+            "hashAlg": "SHA3-256",
+            "ph": "bcdf6218ffaed85789eeee2bd511cf5852a3e3f5c851fac807baeec15ad6e045"
+        },
+        "390": {
+            "tcId": 390,
+            "messagelength": 2487,
+            "hashAlg": "SHA2-384",
+            "ph": "d7035a85f252455067f67aa8b95f2c85f70f838fca3b8e82cf8bd15982f69bb9c29f826e6517c4994f9ecdd2cfc90040"
+        },
+        "391": {
+            "tcId": 391,
+            "messagelength": 6709,
+            "hashAlg": "SHA2-512/256",
+            "ph": "db7d64191a636433420abe5606abd19d5dfd8a8bcdf5d0906bb05dd0084bdd9d"
+        },
+        "392": {
+            "tcId": 392,
+            "messagelength": 2401,
+            "hashAlg": "SHA2-512/224",
+            "ph": "48de794ae0dda207e7e69a9beec82075e2a33056e42a243ffdd535b1"
+        },
+        "407": {
+            "tcId": 407,
+            "messagelength": 8192,
+            "hashAlg": "SHA2-512/224",
+            "ph": "ca6690cd3e7e64d8c4338674a97a9155aac7ddb870ec2adced437d41"
+        },
+        "408": {
+            "tcId": 408,
+            "messagelength": 7187,
+            "hashAlg": "SHA3-256",
+            "ph": "9ff7e9ccfe06540a43c641d5a54082d93086df4348e748d4c9875ab522336a2e"
+        },
+        "409": {
+            "tcId": 409,
+            "messagelength": 4513,
+            "hashAlg": "SHA2-224",
+            "ph": "62a8eb5a1cbca4dab26c1efc4f96d575d80d709b4eb2e45090967265"
+        },
+        "410": {
+            "tcId": 410,
+            "messagelength": 873,
+            "hashAlg": "SHA2-512",
+            "ph": "bab072e669fb9340ffd0ca1d216ffd323d9a849a274ad8fb73b8770fbd64cc39731c16c1771dd0c40828944caf5c5d2173e8f46d8f88ee0b141fcbfac607bc2a"
+        },
+        "411": {
+            "tcId": 411,
+            "messagelength": 1637,
+            "hashAlg": "SHAKE-128",
+            "ph": "3c4403858d1d8b3d7c48ca394eac0a9a516f709272e178037d4be3eb7605e0d2"
+        },
+        "412": {
+            "tcId": 412,
+            "messagelength": 4567,
+            "hashAlg": "SHA2-512/256",
+            "ph": "badd053f96c470d0660e545d1de719e04d9f270dd5a94be307748edc8fcbdd80"
+        },
+        "413": {
+            "tcId": 413,
+            "messagelength": 1,
+            "hashAlg": "SHA2-256",
+            "ph": "bd4fc42a21f1f860a1030e6eba23d53ecab71bd19297ab6c074381d4ecee0018"
+        },
+        "414": {
+            "tcId": 414,
+            "messagelength": 7216,
+            "hashAlg": "SHA3-512",
+            "ph": "e78b8c80291d7bb084d9d990d1d652f6b239138283225dde60d730a3e22c371e3578c3ffc7811071ffc93c851dcca13c62ec043829d0a853060c347fdfa11021"
+        },
+        "415": {
+            "tcId": 415,
+            "messagelength": 5072,
+            "hashAlg": "SHA2-384",
+            "ph": "d4b0e710eb3890caa00c34fd71f8dcea1ce38275cee1d1370feec94850b154c32400578951db1a2bcf9b014250690a86"
+        },
+        "416": {
+            "tcId": 416,
+            "messagelength": 936,
+            "hashAlg": "SHA2-256",
+            "ph": "6d256ae5c44be115639992523496f896e386329fdffecf5c2939f09a7e29db2e"
+        },
+        "417": {
+            "tcId": 417,
+            "messagelength": 4405,
+            "hashAlg": "SHA3-384",
+            "ph": "a01910e32e1a4c0ecc9c9cda649fe7217fc1daf06dd75d78c10e23a3943bf03cceb19f66e1cc4fc2058046f12f892bf1"
+        },
+        "418": {
+            "tcId": 418,
+            "messagelength": 3464,
+            "hashAlg": "SHAKE-256",
+            "ph": "b96439f237217fff1ecaddc3d409a5c7c8e1ae3d3727a2c03eba33182425b18efd205acec6714d0b7af8d5d8fff3eee521238194733c3e5503d315fe253c8978"
+        },
+        "419": {
+            "tcId": 419,
+            "messagelength": 5424,
+            "hashAlg": "SHA3-224",
+            "ph": "81c499f6d28531aec7944475d2777a9f6742d2361efbe049b61e50b7"
+        },
+        "420": {
+            "tcId": 420,
+            "messagelength": 7003,
+            "hashAlg": "SHA3-256",
+            "ph": "1d482d899f162e0137858429502ec86d61a12a4e732237c6daf941053c4d40b0"
+        }
+    }
+}

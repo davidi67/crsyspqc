@@ -1,5 +1,5 @@
 // Copyright (C) 2025 David Ireland, DI Management Services Pty Limited
-// t/a CryptoSys <www.cryptosys.net>. All rights reserved. 
+// t/a CryptoSys <www.cryptosys.net>. All rights reserved.
 // Use of this source code is governed by an Apache-2.0
 // license that can be found in the LICENSE file.
 
@@ -17,7 +17,6 @@
 // [FIPS203]: https://doi.org/10.6028/NIST.FIPS.203
 // [FIPS204]: https://doi.org/10.6028/NIST.FIPS.204
 // [FIPS205]: https://doi.org/10.6028/NIST.FIPS.205
-//
 package crsyspqc
 
 import (
@@ -121,6 +120,24 @@ const (
 	DETERMINISTIC   SigOpts = 0x2000    // Use deterministic variant when signing
 	INTERNAL        SigOpts = 0x4000000 // Use Sign_internal or Verify_internal algorithm (for testing purposes)
 	EXTERNALMU      SigOpts = 0x8000000 // Use ExternalMu-ML-DSA.Sign or ExternalMu-ML-DSA.Verify algorithm (ML-DSA only)
+)
+
+// Hash function identifiers for pre-hash signing
+type PreHashAlg int
+
+const (
+	SHA256       PreHashAlg = 0x1 // SHA-256 from FIPS.180-4
+	SHA384       PreHashAlg = 0x2 // SHA-284 from FIPS.180-4
+	SHA512       PreHashAlg = 0x3 // SHA-512 from FIPS.180-4
+	SHA224       PreHashAlg = 0x4 // SHA-224 from FIPS.180-4
+	SHA512_224   PreHashAlg = 0x5 // SHA-512/224 from FIPS.180-4
+	SHA512_256   PreHashAlg = 0x6 // SHA-512/256 from FIPS.180-4
+	SHA3_224     PreHashAlg = 0x7 // SHA3-224 from FIPS.202
+	SHA3_256     PreHashAlg = 0x8 // SHA3-256 from FIPS.202
+	SHA3_384     PreHashAlg = 0x9 // SHA3-384 from FIPS.202
+	SHA3_512     PreHashAlg = 0xA // SHA3-512 from FIPS.202
+	SHAKE128_256 PreHashAlg = 0xB // SHAKE-128-256 from FIPS.202
+	SHAKE256_512 PreHashAlg = 0xC // SHAKE-256-512 from FIPS.202
 )
 
 // Lookup table for alg code by string
@@ -308,13 +325,13 @@ func (d Dsa) SignEx(alg DsaAlg, msg []byte, privatekey []byte, opts SigOpts, con
 	//	const unsigned char *lpPrivateKey, long nKeyLen, const unsigned char *lpContext, long nCtxLen, const char *szParams, long nOptions);
 	var proc = syscall.NewLazyDLL(dllName).NewProc("DSA_Sign")
 	flags := int(alg) | int(opts)
-	var ctx *byte
+	var ctxptr *byte
 	var ctxlen int
-	if len(context) == 0 || context == nil {
-		ctx = nil
+	if len(context) == 0 {
+		ctxptr = nil
 		ctxlen = 0
 	} else {
-		ctx = &context[0]
+		ctxptr = &context[0]
 		ctxlen = len(context)
 	}
 	nbytes, _, _ := proc.Call(
@@ -323,7 +340,7 @@ func (d Dsa) SignEx(alg DsaAlg, msg []byte, privatekey []byte, opts SigOpts, con
 		uintptr(len(msg)),
 		uintptr(unsafe.Pointer(&privatekey[0])),
 		uintptr(len(privatekey)),
-		uintptr(unsafe.Pointer(ctx)),
+		uintptr(unsafe.Pointer(ctxptr)),
 		uintptr(ctxlen),
 		uintptr(unsafe.Pointer(stringToCharPtr(params))),
 		uintptr(flags))
@@ -338,7 +355,53 @@ func (d Dsa) SignEx(alg DsaAlg, msg []byte, privatekey []byte, opts SigOpts, con
 		uintptr(len(msg)),
 		uintptr(unsafe.Pointer(&privatekey[0])),
 		uintptr(len(privatekey)),
-		uintptr(unsafe.Pointer(ctx)),
+		uintptr(unsafe.Pointer(ctxptr)),
+		uintptr(ctxlen),
+		uintptr(unsafe.Pointer(stringToCharPtr(params))),
+		uintptr(flags))
+
+	return sig, nil
+}
+
+// Generate a DSA signature over a pre-hashed message
+func (d Dsa) SignPreHash(alg DsaAlg, msg []byte, hashAlg PreHashAlg, privatekey []byte, opts SigOpts, context []byte, params string) (sig []byte, err error) {
+	// long DSA_SignPreHash (unsigned char *lpOutput, long nOutBytes, const unsigned char *lpMsg, long nMsgLen, long nHashAlg, const unsigned char *lpPrivateKey,
+	//  long nKeyLen, const unsigned char *lpContext, long nCtxLen, const char *szParams, long nOptions)
+	var proc = syscall.NewLazyDLL(dllName).NewProc("DSA_SignPreHash")
+	flags := int(alg) | int(opts)
+	var ctxptr *byte
+	var ctxlen int
+	if len(context) == 0 {
+		ctxptr = nil
+		ctxlen = 0
+	} else {
+		ctxptr = &context[0]
+		ctxlen = len(context)
+	}
+	nbytes, _, _ := proc.Call(
+		0, 0,
+		uintptr(unsafe.Pointer(&msg[0])),
+		uintptr(len(msg)),
+		uintptr(hashAlg),
+		uintptr(unsafe.Pointer(&privatekey[0])),
+		uintptr(len(privatekey)),
+		uintptr(unsafe.Pointer(ctxptr)),
+		uintptr(ctxlen),
+		uintptr(unsafe.Pointer(stringToCharPtr(params))),
+		uintptr(flags))
+	if int(nbytes) < 0 {
+		return sig, errors.New(errorLookup(int(nbytes)))
+	}
+	sig = make([]byte, nbytes)
+	_, _, _ = proc.Call(
+		uintptr(unsafe.Pointer(&sig[0])),
+		uintptr(len(sig)),
+		uintptr(unsafe.Pointer(&msg[0])),
+		uintptr(len(msg)),
+		uintptr(hashAlg),
+		uintptr(unsafe.Pointer(&privatekey[0])),
+		uintptr(len(privatekey)),
+		uintptr(unsafe.Pointer(ctxptr)),
 		uintptr(ctxlen),
 		uintptr(unsafe.Pointer(stringToCharPtr(params))),
 		uintptr(flags))
@@ -355,7 +418,7 @@ func (d Dsa) Verify(alg DsaAlg, sig []byte, msg []byte, publickey []byte) (ok bo
 	const _SIGNATURE_ERROR = -22
 	var proc = syscall.NewLazyDLL(dllName).NewProc("DSA_Verify")
 	flags := int(alg)
-	ret, _, _ := proc.Call(0, 0,
+	ret, _, _ := proc.Call(
 		uintptr(unsafe.Pointer(&sig[0])),
 		uintptr(len(sig)),
 		uintptr(unsafe.Pointer(&msg[0])),
@@ -370,7 +433,7 @@ func (d Dsa) Verify(alg DsaAlg, sig []byte, msg []byte, publickey []byte) (ok bo
 		// Signature is not valid
 		return false, nil
 	}
-	if int(ret) < 0 {
+	if int(ret) != 0 {
 		// Some other error, e.g. wrong parameter lengths
 		return false, errors.New(errorLookup(int(ret)))
 	}
@@ -378,20 +441,20 @@ func (d Dsa) Verify(alg DsaAlg, sig []byte, msg []byte, publickey []byte) (ok bo
 	return true, nil
 }
 
-// Vaerify a DSA signature over a message. Extended options.
+// Verify a DSA signature over a message. Extended options.
 func (d Dsa) VerifyEx(alg DsaAlg, sig []byte, msg []byte, publickey []byte, opts SigOpts, context []byte) (ok bool, err error) {
 	// long __stdcall DSA_Verify(const unsigned char *lpSignature, long nSigLen, const unsigned char *lpMsg, long nMsgLen,
 	//	const unsigned char *lpPublicKey, long nKeyLen, const unsigned char *lpContext, long nCtxLen, const char *szParams, long nOptions);
 	const _SIGNATURE_ERROR = -22
 	var proc = syscall.NewLazyDLL(dllName).NewProc("DSA_Verify")
 	flags := int(alg) | int(opts)
-	var ctx *byte
+	var ctxptr *byte
 	var ctxlen int
-	if len(context) == 0 || context == nil {
-		ctx = nil
+	if len(context) == 0 {
+		ctxptr = nil
 		ctxlen = 0
 	} else {
-		ctx = &context[0]
+		ctxptr = &context[0]
 		ctxlen = len(context)
 	}
 	ret, _, _ := proc.Call(
@@ -401,14 +464,53 @@ func (d Dsa) VerifyEx(alg DsaAlg, sig []byte, msg []byte, publickey []byte, opts
 		uintptr(len(msg)),
 		uintptr(unsafe.Pointer(&publickey[0])),
 		uintptr(len(publickey)),
-		uintptr(unsafe.Pointer(ctx)),
+		uintptr(unsafe.Pointer(ctxptr)),
 		uintptr(ctxlen),
 		uintptr(unsafe.Pointer(stringToCharPtr(""))),
 		uintptr(flags))
 	if int(ret) == _SIGNATURE_ERROR {
 		return false, nil
 	}
-	if int(ret) < 0 {
+	if int(ret) != 0 {
+		return false, errors.New(errorLookup(int(ret)))
+	}
+
+	return true, nil
+}
+
+// Verify a DSA signature over a pre-hashed message.
+// Pass the hash digest as the message and specify the hash algorithm used
+func (d Dsa) VerifyPreHash(alg DsaAlg, sig []byte, msg []byte, hashAlg PreHashAlg, publickey []byte, opts SigOpts, context []byte) (ok bool, err error) {
+	// long DSA_VerifyPreHash (const unsigned char *lpSignature, long nSigLen, const unsigned char *lpMsg, long nMsgLen, long nHashAlg,
+	// const unsigned char *lpPublicKey, long nKeyLen, const unsigned char *lpContext, long nCtxLen, const char *szParams, long nOptions)
+	const _SIGNATURE_ERROR = -22
+	var proc = syscall.NewLazyDLL(dllName).NewProc("DSA_VerifyPreHash")
+	flags := int(alg) | int(opts)
+	var ctxptr *byte
+	var ctxlen int
+	if len(context) == 0 {
+		ctxptr = nil
+		ctxlen = 0
+	} else {
+		ctxptr = &context[0]
+		ctxlen = len(context)
+	}
+	ret, _, _ := proc.Call(
+		uintptr(unsafe.Pointer(&sig[0])),
+		uintptr(len(sig)),
+		uintptr(unsafe.Pointer(&msg[0])),
+		uintptr(len(msg)),
+		uintptr(hashAlg),
+		uintptr(unsafe.Pointer(&publickey[0])),
+		uintptr(len(publickey)),
+		uintptr(unsafe.Pointer(ctxptr)),
+		uintptr(ctxlen),
+		uintptr(unsafe.Pointer(stringToCharPtr(""))),
+		uintptr(flags))
+	if int(ret) == _SIGNATURE_ERROR {
+		return false, nil
+	}
+	if int(ret) != 0 {
 		return false, errors.New(errorLookup(int(ret)))
 	}
 
@@ -529,7 +631,7 @@ func kem_ciphertextsize(alg KemAlg) int {
 	return int(ret)
 }
 
-// Return length in bytes of ciphertext (ct, C) for the given KEM algorithm.
+// Return length in bytes of ciphertext (ct / C) for the given KEM algorithm.
 func (k Kem) CipherTextSize(alg KemAlg) int {
 	return kem_ciphertextsize(alg)
 }
@@ -582,8 +684,8 @@ func (k Kem) KeyGenWithParams(alg KemAlg, params string) (ek []byte, dk []byte, 
 	return ek, dk, nil
 }
 
-// Carry out the ML-KEM encapsulation algorithm: (ct,ss)<--Encaps(ek)
-func (k Kem) Encaps(alg KemAlg, ek []byte) (ct []byte, ss []byte, err error) {
+// Carry out the ML-KEM encapsulation algorithm: (ss,ct)<--Encaps(ek)
+func (k Kem) Encaps(alg KemAlg, ek []byte) (ss []byte, ct []byte, err error) {
 	// long	KEM_Encaps (unsigned char *lpOutput, long nOutBytes, const unsigned char *lpEncapKey,
 	//    long nEncapKeyLen, const char *szParams, long nOptions)
 	var proc = syscall.NewLazyDLL(dllName).NewProc("KEM_Encaps")
@@ -595,7 +697,7 @@ func (k Kem) Encaps(alg KemAlg, ek []byte) (ct []byte, ss []byte, err error) {
 		uintptr(unsafe.Pointer(stringToCharPtr(""))),
 		uintptr(flags))
 	if int(nbytes) < 0 {
-		return ct, ss, errors.New(errorLookup(int(nbytes)))
+		return ss, ct, errors.New(errorLookup(int(nbytes)))
 	}
 	buf := make([]byte, nbytes)
 	_, _, _ = proc.Call(
@@ -610,12 +712,12 @@ func (k Kem) Encaps(alg KemAlg, ek []byte) (ct []byte, ss []byte, err error) {
 	sslen := kem_sharedkeysize(alg)
 	ss = buf[:sslen]
 	ct = buf[sslen:]
-	return ct, ss, nil
+	return ss, ct, nil
 }
 
-// Carry out the ML-KEM encapsulation algorithm: (ct,ss)<--Encaps(ek)
+// Carry out the ML-KEM encapsulation algorithm: (ss,ct)<--Encaps(ek)
 //   - Use "params" to pass a known test random seed encoded in hex and representing exactly 32 bytes.
-func (k Kem) EncapsWithParams(alg KemAlg, ek []byte, params string) (ct []byte, ss []byte, err error) {
+func (k Kem) EncapsWithParams(alg KemAlg, ek []byte, params string) (ss []byte, ct []byte, err error) {
 	// long	KEM_Encaps (unsigned char *lpOutput, long nOutBytes, const unsigned char *lpEncapKey, long nEncapKeyLen, const char *szParams, long nOptions)
 	var proc = syscall.NewLazyDLL(dllName).NewProc("KEM_Encaps")
 	//fmt.Println(alg)
@@ -626,7 +728,7 @@ func (k Kem) EncapsWithParams(alg KemAlg, ek []byte, params string) (ct []byte, 
 		uintptr(unsafe.Pointer(stringToCharPtr(params))),
 		uintptr(flags))
 	if int(nbytes) < 0 {
-		return ct, ss, errors.New(errorLookup(int(nbytes)))
+		return ss, ct, errors.New(errorLookup(int(nbytes)))
 	}
 	buf := make([]byte, nbytes)
 	_, _, _ = proc.Call(
@@ -641,7 +743,7 @@ func (k Kem) EncapsWithParams(alg KemAlg, ek []byte, params string) (ct []byte, 
 	sslen := kem_sharedkeysize(alg)
 	ss = buf[:sslen]
 	ct = buf[sslen:]
-	return ct, ss, nil
+	return ss, ct, nil
 }
 
 // Carry out the ML-KEM decapsulation algorithm: (ss')<--Decaps(ct, dk)
