@@ -1,5 +1,5 @@
 // @file mldsa-keygen.go
-// @date 2025-07-03T11:53Z
+// @date 2025-07-06T06:07Z
 // @author David Ireland <www.cryptosys.net/contact>
 // @copyright 2025 DI Management Services Pty Ltd t/a CryptoSys
 // @license Apache-2.0
@@ -60,7 +60,7 @@ func main() {
 		panic(err)
 	}
 
-	// Global Dsa variable
+	// Create a Dsa instance
 	var dsa crsyspqc.Dsa
 
 	fmt.Println("vsId:", data["vsId"])
@@ -77,7 +77,7 @@ func main() {
 		// for each test case tc in tg['tests']
 		for _, tc := range tg.(map[string]any)["tests"].([]any) {
 			//fmt.Println("  tcId:", tc.(map[string]any)["tcId"])
-			// Compose seed (d||z) in hex form
+			// Get seed in hex form
 			seed := tc.(map[string]any)["seed"].(string)
 
 			// Generate keys using known test vector

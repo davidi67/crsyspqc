@@ -1,5 +1,5 @@
 // @file slhdsa-keygen.go
-// @date 2025-07-03T11:53Z
+// @date 2025-07-06T06:07Z
 // @author David Ireland <www.cryptosys.net/contact>
 // @copyright 2025 DI Management Services Pty Ltd t/a CryptoSys
 // @license Apache-2.0
@@ -69,7 +69,7 @@ func main() {
 		panic(err)
 	}
 
-	// Global Dsa variable
+	// Create a Dsa instance
 	var dsa crsyspqc.Dsa
 
 	fmt.Println("vsId:", data["vsId"])
@@ -86,7 +86,7 @@ func main() {
 		// for each test case tc in tg['tests']
 		for _, tc := range tg.(map[string]any)["tests"].([]any) {
 			// Compose seed in hex form
-			// 3*n value SK.seed||SK.prf||PK.seed (48/72/96 bytes)
+			// 3*n value = SK.seed||SK.prf||PK.seed (48/72/96 bytes)
 			seed := tc.(map[string]any)["skSeed"].(string) + tc.(map[string]any)["skPrf"].(string) + tc.(map[string]any)["pkSeed"].(string)
 
 			// Generate keys using known test vector

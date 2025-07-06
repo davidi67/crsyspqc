@@ -1,5 +1,5 @@
 // @file mlkem-encap-decap.go
-// @date 2025-07-03T11:53Z
+// @date 2025-07-06T06:07Z
 // @author David Ireland <www.cryptosys.net/contact>
 // @copyright 2025 DI Management Services Pty Ltd t/a CryptoSys
 // @license Apache-2.0
@@ -60,7 +60,7 @@ func main() {
 		panic(err)
 	}
 
-	// Global Kem variable
+	// Create a Kem instance
 	var kem crsyspqc.Kem
 
 	fmt.Println("vsId:", data["vsId"])
